@@ -1,6 +1,6 @@
 # Locality App
 
-<img src="./.github/images/screens.png" alt="Locality app screens"/>
+<img src="https://www.ec2server.online/localityorg/logo/screensuser.png" alt="Locality app screens"/>
 
 ## Overview
 
@@ -28,6 +28,10 @@ npm install
 ```
 
 3. Run the app
+
+```bash
+npx react-native start
+```
 
 This will start the Metro bundler. You can then run the app on your iOS or Android device using the Expo app.
 
