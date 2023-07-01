@@ -28,7 +28,7 @@ const TabHeader = (props: TabHeaderProps): JSX.Element => {
         onPress={props.iconPress}>
         {props.logo && (
           <BoldText text80 style={{color: Colors.primary, marginTop: 20}}>
-            locale.
+            locality
           </BoldText>
         )}
         {props.deliveryLocation ? (

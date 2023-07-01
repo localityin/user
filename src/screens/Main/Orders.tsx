@@ -9,6 +9,8 @@ import TabHeader from '../../components/Store/TabHeader';
 import {View} from '../../components/Themed';
 import {setOrders} from '../../context/Store/actions';
 
+import notifee from '@notifee/react-native';
+
 import {RootStackScreenProps} from '../../../types';
 
 export default function Orders({navigation}: RootStackScreenProps<'Root'>) {
@@ -18,6 +20,24 @@ export default function Orders({navigation}: RootStackScreenProps<'Root'>) {
 
   const {user} = useSelector((state: any) => state.userReducer);
   const {userOrders} = useSelector((state: any) => state.ordersReducer);
+
+  async function onDisplayNotification(title: string, content: string) {
+    const channelId = await notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel',
+    });
+
+    await notifee.displayNotification({
+      title: title,
+      body: content,
+      android: {
+        channelId,
+        pressAction: {
+          id: 'default',
+        },
+      },
+    });
+  }
 
   const {
     loading: fetchingOrders,
@@ -57,6 +77,10 @@ export default function Orders({navigation}: RootStackScreenProps<'Root'>) {
         if (index <= -1) {
           dispatch(setOrders([updatedQueryData, ...prev.getOrders]));
           setRender(!render);
+          onDisplayNotification(
+            `New order registered`,
+            `You'll be updated when store accepts your order.`,
+          );
           return Object.assign({}, prev, {
             getOrders: [updatedQueryData, ...prev.getOrders],
           });
@@ -64,6 +88,10 @@ export default function Orders({navigation}: RootStackScreenProps<'Root'>) {
           var updatedOrders = [...prev.getOrders];
           updatedOrders.splice(index, 1);
           dispatch(setOrders([updatedQueryData, ...updatedOrders]));
+          onDisplayNotification(
+            `Order updated`,
+            `Click to check status & track order.`,
+          );
           setRender(!render);
           return Object.assign({}, prev, {
             getOrders: [updatedQueryData, ...updatedOrders],

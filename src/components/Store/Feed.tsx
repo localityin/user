@@ -220,7 +220,7 @@ export default function Feed(props: FeedProps) {
             <RefreshControl
               refreshing={props.refreshing}
               onRefresh={props.onRefresh}
-              tintColor={Colors.$iconPrimary}
+              colors={[Colors.primary]}
               progressBackgroundColor={Colors.$backgroundDefault}
             />
           }

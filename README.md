@@ -1,6 +1,6 @@
 # Locality App
 
-<img src="./.github/images/screens.png" alt="Locality app screens"/>
+<img src="https://www.ec2server.online/localityorg/logo/screens-user.png" alt="Locality app screens"/>
 
 ## Overview
 

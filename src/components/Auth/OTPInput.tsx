@@ -34,6 +34,7 @@ export function OTPInput(props: OTPProps) {
           onCodeChanged={code => {
             props.setSecureCode(code);
           }}
+          keyboardType="phone-pad"
           autoFocusOnLoad={false}
           codeInputFieldStyle={{
             width: 45,
