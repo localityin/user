@@ -29,6 +29,10 @@ npm install
 
 3. Run the app
 
+```bash
+npx react-native start
+```
+
 This will start the Metro bundler. You can then run the app on your iOS or Android device using the Expo app.
 
 ## Features
